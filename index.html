@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container-left"></div>
+      <div class="container-middle">
+        <div class="hero">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="title">
+          <h1>Sign In</h1>
+        </div>
+        <form action="">
+          <div class="input-group">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-group">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-lock" id="gembok"></i>
+            </div>
+            <input type="password" id="password" placeholder="Password" />
+          </div>
+          <div class="input-group-btn">
+            <button class="btn signin">Sign In</button>
+          </div>
+          <div class="cross">
+            <hr />
+            <p>other signin</p>
+          </div>
+          <div class="other-signin">
+            <div class="other">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="other">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="other">
+              <i class="fa-brands fa-google"></i>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container-middle-other position">
+        <div class="hero-other">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="title">
+          <h1>Sign Up</h1>
+        </div>
+        <form action="">
+          <div class="input-group">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <input type="text" placeholder="Username" />
+          </div>
+          <div class="input-group">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <input type="password" placeholder="Password" />
+          </div>
+          <div class="input-group">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <input type="password" placeholder="Re-Password" />
+          </div>
+          <div class="input-group-btn">
+            <button class="btn signin">Sign Up</button>
+          </div>
+          <div class="cross">
+            <hr />
+            <p>other signup</p>
+          </div>
+          <div class="other-signin">
+            <div class="other">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="other">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="other">
+              <i class="fa-brands fa-google"></i>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container-right"></div>
+    </div>
+
+    <script>
+      let hero = document.querySelector(".hero");
+      let containerLeft = document.querySelector(".container-left");
+      let containerMiddle = document.querySelector(".container-middle");
+      let containerRight = document.querySelector(".container-right");
+      let containerMiddleOther = document.querySelector(
+        ".container-middle-other"
+      );
+      let heroOther = document.querySelector(".hero-other");
+      let lock = document.querySelector("#gembok");
+      // let unlock = document.querySelector(".fa-unlock");
+      let password = document.getElementById("password");
+
+      let lebarLayar = window.innerWidth;
+      let btn = document.querySelector(".btn");
+
+      lock.addEventListener("click", function () {
+        console.log(password);
+        if (!password.getAttribute("type", "password")) {
+          password.setAttribute("type", "text");
+          // password.removeAttribute("type", "text");
+        } else if (!password.getAttribute("type", "text")) {
+          password.setAttribute("type", "password");
+        }
+      });
+
+      hero.addEventListener("click", function () {
+        console.log("berhasil");
+        containerLeft.style.transform = "translate(50%, -50%)";
+        containerRight.style.transform = "translate(-50%, -50%)";
+        containerRight.style.transition = ".5s linear";
+        containerLeft.style.transition = ".5s linear";
+        containerLeft.style.zIndex = "11";
+        containerRight.style.zIndex = "10";
+        containerMiddle.style.transition = ".5s linear";
+        // containerMiddleOther.style.transitionDelay = ".4s";
+        containerMiddle.style.zIndex = "-2";
+        containerMiddle.style.transform = "translate(250%, 0%)";
+        // hero.style.transform = "rotate(360deg)";
+        containerMiddleOther.style.zIndex = "12";
+        containerMiddleOther.style.opacity = "1";
+        containerMiddle.style.backgroundColor = "salmon";
+        btn.style.backgroundColor = "salmon";
+        // containerMiddleOther.classList.remove("position");
+        if (lebarLayar <= 670) {
+          containerMiddleOther.style.transform = "translate(5%, 0%)";
+        } else {
+          containerMiddleOther.style.transform = "translate(220%, 0%)";
+        }
+      });
+
+      heroOther.addEventListener("click", function () {
+        console.log("hero other");
+        containerLeft.style.transform = "translate(-50%, -50%)";
+        containerRight.style.transform = "translate(50%, -50%)";
+        containerRight.style.transition = ".5s linear";
+        containerLeft.style.transition = ".5s linear";
+        containerLeft.style.zIndex = "11";
+        containerRight.style.zIndex = "10";
+        containerMiddle.style.transition = ".6s linear";
+        // containerMiddleOther.style.transitionDelay = ".4s";
+        containerMiddle.style.zIndex = "12";
+        containerMiddle.style.transform = "translate(0%, 0%)";
+        // hero.style.transform = "rotate(360deg)";
+        containerMiddleOther.style.zIndex = "-2";
+        containerMiddleOther.style.opacity = "0";
+        btn.style.backgroundColor = "teal";
+        // containerMiddleOther.classList.remove("position");
+        containerMiddleOther.style.transform = "translate(0%, 0%)";
+      });
+    </script>
+  </body>
+</html>
